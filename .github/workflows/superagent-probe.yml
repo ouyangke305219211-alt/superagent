@@ -1,0 +1,20 @@
+name: superagent probe
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/superagent-probe.yml'
+permissions:
+  issues: write
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Open a probe issue as the Actions bot
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue create --repo "${{ github.repository }}" \
+            --title "Probe: 加一个 hello.md" \
+            --body "@ouyangke305219211-alt 在这个仓库加一个 hello.md，内容写 \"hello superagent\"，然后开 PR 给我。"
