@@ -16,5 +16,5 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh issue create --repo "${{ github.repository }}" \
-            --title "Probe: 新增 hello.md 文档" \
+            --title "Probe: 新增 hello.md 文档 v2" \
             --body "@ouyangke305219211-alt 请在这个仓库新增一个 hello.md 文件，内容写 \"hello superagent\"，改完开一个 PR 给我。"
